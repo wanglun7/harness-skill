@@ -1,9 +1,0 @@
-{
-  "finalText": "已检查，现有记忆已经覆盖这条信息，不需要新增。",
-  "writtenFiles": [],
-  "usage": {
-    "totalTokens": 8185,
-    "toolUses": 3,
-    "durationMs": 7940
-  }
-}

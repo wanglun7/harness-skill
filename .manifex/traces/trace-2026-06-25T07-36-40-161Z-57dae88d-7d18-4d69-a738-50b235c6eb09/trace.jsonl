@@ -1,2 +1,0 @@
-{"schemaVersion":1,"seq":1,"wallTimeUnixMs":1782373000162,"traceId":"trace-2026-06-25T07-36-40-161Z-57dae88d-7d18-4d69-a738-50b235c6eb09","sessionId":"session-2026-06-25T07-36-40-156Z-019b44d9-592d-4f17-b9b0-a8347f2081d0","payload":{"type":"run_started","domain":"fork-exec"}}
-{"schemaVersion":1,"seq":2,"wallTimeUnixMs":1782373001614,"traceId":"trace-2026-06-25T07-36-40-161Z-57dae88d-7d18-4d69-a738-50b235c6eb09","sessionId":"session-2026-06-25T07-36-40-156Z-019b44d9-592d-4f17-b9b0-a8347f2081d0","payload":{"type":"run_ended","status":"completed","error":null}}
