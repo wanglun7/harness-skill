@@ -1,0 +1,12 @@
+{
+  "kind": "tool_invocation",
+  "value": {
+    "tool": "Bash",
+    "input": {
+      "command": "ls -la \"/Users/lun/Desktop/manifex/harness-skill/.manifex\" && ls -la \"/Users/lun/Desktop/manifex/harness-skill/.manifex/memories\"",
+      "timeout": 60000,
+      "description": "List memory directory contents",
+      "run_in_background": false
+    }
+  }
+}

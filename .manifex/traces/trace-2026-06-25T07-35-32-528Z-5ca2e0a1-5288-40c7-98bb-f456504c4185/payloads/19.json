@@ -1,0 +1,10 @@
+{
+  "kind": "tool_invocation",
+  "value": {
+    "tool": "Write",
+    "input": {
+      "file_path": "/Users/lun/Desktop/manifex/harness-skill/.manifex/memories/memory_summary.md",
+      "content": "# Memory Summary\n\n## Project state\n- User wants the current project pushed to `https://github.com/wanglun7/harness-skill.git`.\n"
+    }
+  }
+}
