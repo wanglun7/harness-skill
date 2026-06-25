@@ -57,6 +57,18 @@ Before:
 - Selected mechanism: 4. Streaming protocol and assistant text/tool interleaving.
 - Assumption: this mechanism covers provider/runtime streaming events, assistant text deltas, reasoning/text block completion, tool-call start/input streaming, and the boundary between streamed display events and completed prompt/history items. It does not cover provider payload construction, which belongs to mechanism 5, or tool dispatch scheduling, which belongs to mechanism 11.
 
+After:
+- Completed `cards/04-streaming-protocol-and-assistant-text-tool-interleaving.md`.
+- Mechanism 4 source citations recorded below.
+- Next incomplete mechanism: 5. Message normalization and provider payload construction.
+
+### 2026-06-25 Cycle 5
+
+Before:
+- Ledger read result: mechanisms 1, 2, 3, and 4 complete; mechanism 5 is the next incomplete mechanism.
+- Selected mechanism: 5. Message normalization and provider payload construction.
+- Assumption: this mechanism covers conversion from internal transcript/history messages into provider request payloads, provider-specific payload fields, and API request capture/logging boundaries. It does not cover system prompt content/layering beyond where it is passed into the provider payload; that belongs to mechanism 6.
+
 ## Mechanism Status
 
 | # | Mechanism | Status | Card | Key citations |
@@ -64,8 +76,8 @@ Before:
 | 1 | Repository/source map and harness boundary definition | complete | `cards/01-repository-source-map-and-harness-boundary.md` | Claude: `src/entrypoints/cli.tsx:28-33`, `src/QueryEngine.ts:175-184`, `src/QueryEngine.ts:1179-1186`, `src/query.ts:181-239`, `src/Tool.ts:697-701`; Codex: `codex-rs/cli/src/main.rs:90-120`, `codex-rs/core/src/lib.rs:1-18`, `codex-rs/core/src/session/session.rs:23-47`, `codex-rs/core/src/session/turn.rs:140-245` |
 | 2 | Model/provider abstraction | complete | `cards/02-model-provider-abstraction.md` | Claude: `src/utils/model/providers.ts:4-14`, `src/utils/model/modelStrings.ts:17-31`, `src/services/api/client.ts:88-315`, `src/query.ts:570-705`; Codex: `codex-rs/model-provider-info/src/lib.rs:82-137`, `codex-rs/model-provider/src/provider.rs:94-180`, `codex-rs/core/src/client.rs:208-245`, `codex-rs/core/src/client.rs:1610-1668` |
 | 3 | Main turn loop and stop conditions | complete | `cards/03-main-turn-loop-and-stop-conditions.md` | Claude: `src/query.ts:181-238`, `src/query.ts:241-321`, `src/query.ts:554-705`, `src/query.ts:1011-1357`, `src/query.ts:1366-1728`, `src/query/stopHooks.ts:60-80`, `src/query/stopHooks.ts:257-455`, `src/QueryEngine.ts:675-875`, `src/QueryEngine.ts:943-1155`; Codex: `codex-rs/core/src/session/turn.rs:140-414`, `codex-rs/core/src/session/turn.rs:1283-1287`, `codex-rs/core/src/session/turn.rs:1849-2336`, `codex-rs/core/src/tasks/mod.rs:210-232`, `codex-rs/core/src/tasks/mod.rs:308-425`, `codex-rs/core/src/tasks/mod.rs:486-519`, `codex-rs/core/src/tasks/mod.rs:731-868`, `codex-rs/protocol/src/protocol.rs:1933-1948`, `codex-rs/protocol/src/protocol.rs:3864-3884` |
-| 4 | Streaming protocol and assistant text/tool interleaving | in_progress | | |
-| 5 | Message normalization and provider payload construction | not_started | | |
+| 4 | Streaming protocol and assistant text/tool interleaving | complete | `cards/04-streaming-protocol-and-assistant-text-tool-interleaving.md` | Claude: `src/services/api/claude.ts:1761-1770`, `src/services/api/claude.ts:1979-2304`, `src/query.ts:742-862`, `src/query.ts:1366-1408`, `src/services/tools/StreamingToolExecutor.ts:19-40`, `src/services/tools/StreamingToolExecutor.ts:73-151`, `src/services/tools/StreamingToolExecutor.ts:153-230`, `src/services/tools/StreamingToolExecutor.ts:320-490`, `src/QueryEngine.ts:720-828`, `src/utils/queryHelpers.ts:102-222`; Codex: `codex-rs/codex-api/src/common.rs:72-105`, `codex-rs/codex-api/src/sse/responses.rs:298-418`, `codex-rs/core/src/session/turn.rs:1544-1642`, `codex-rs/core/src/session/turn.rs:1956-2288`, `codex-rs/core/src/stream_events_utils.rs:190-244`, `codex-rs/core/src/stream_events_utils.rs:303-315`, `codex-rs/core/src/stream_events_utils.rs:404-586`, `codex-rs/core/src/tools/registry.rs:140-157`, `codex-rs/core/src/tools/handlers/apply_patch.rs:71-132`, `codex-rs/core/src/session/mod.rs:1831-1880` |
+| 5 | Message normalization and provider payload construction | in_progress | | |
 | 6 | System prompt and instruction layering | not_started | | |
 | 7 | Dynamic context assembly | not_started | | |
 | 8 | Token budgeting and context limits | not_started | | |
