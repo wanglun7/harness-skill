@@ -1,0 +1,13 @@
+{
+  "kind": "tool_model_output",
+  "value": {
+    "tool": "Read",
+    "input": {
+      "file_path": "/Users/lun/Desktop/manifex/harness-skill/.manifex/memories/MEMORY.md",
+      "offset": 0,
+      "limit": 4000,
+      "pages": ""
+    },
+    "output": "0\t- [Push target repo](push-target-repo.md) — current project should be pushed to wanglun7/harness-skill.git"
+  }
+}

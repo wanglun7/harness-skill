@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "traceId": "trace-2026-06-25T07-39-08-144Z-ae0293c9-117c-4169-842d-df389c4afac8",
+  "sessionId": "session-2026-06-25T07-39-08-140Z-07eb265d-0652-404e-a8d0-89108877915c",
+  "domain": "fork-exec",
+  "createdAt": "2026-06-25T07:39:08.144Z",
+  "eventLog": "trace.jsonl",
+  "terminalLog": "terminal.log",
+  "payloadsDir": "payloads"
+}

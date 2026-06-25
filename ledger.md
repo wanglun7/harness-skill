@@ -26,12 +26,19 @@ After:
 - Mechanism 1 source citations recorded below.
 - Next incomplete mechanism: 2. Model/provider abstraction.
 
+### 2026-06-25 Cycle 2
+
+Before:
+- Ledger read result: mechanism 1 complete; mechanism 2 is the next incomplete mechanism.
+- Selected mechanism: 2. Model/provider abstraction.
+- Assumption: "provider abstraction" means source-grounded mechanisms for choosing/configuring model providers, carrying model/provider identity into sampling, and streaming responses through provider/client boundaries. It does not include full payload construction details, which belong to mechanism 5.
+
 ## Mechanism Status
 
 | # | Mechanism | Status | Card | Key citations |
 |---:|---|---|---|---|
 | 1 | Repository/source map and harness boundary definition | complete | `cards/01-repository-source-map-and-harness-boundary.md` | Claude: `src/entrypoints/cli.tsx:28-33`, `src/QueryEngine.ts:175-184`, `src/QueryEngine.ts:1179-1186`, `src/query.ts:181-239`, `src/Tool.ts:697-701`; Codex: `codex-rs/cli/src/main.rs:90-120`, `codex-rs/core/src/lib.rs:1-18`, `codex-rs/core/src/session/session.rs:23-47`, `codex-rs/core/src/session/turn.rs:140-245` |
-| 2 | Model/provider abstraction | not_started | | |
+| 2 | Model/provider abstraction | in_progress | | |
 | 3 | Main turn loop and stop conditions | not_started | | |
 | 4 | Streaming protocol and assistant text/tool interleaving | not_started | | |
 | 5 | Message normalization and provider payload construction | not_started | | |

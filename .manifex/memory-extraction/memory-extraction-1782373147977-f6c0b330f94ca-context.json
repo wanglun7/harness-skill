@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "mode": "fork",
+  "agentId": "memory-extraction-1782373147977-f6c0b330f94ca",
+  "parentSessionId": "session-2026-06-25T07-38-18-491Z-eb6e9dda-7fa2-4b0d-9095-52013b37a1eb",
+  "root": "/Users/lun/Desktop/manifex/harness-skill",
+  "querySource": "memory_extraction",
+  "queryTracking": {
+    "chainId": "memory-extraction-1782373147977-f6c0b330f94ca",
+    "depth": 1
+  },
+  "inherited": {
+    "messageCount": 2,
+    "readFileStateCount": 1,
+    "invokedSkillCount": 0,
+    "backgroundAgentTaskCount": 0
+  },
+  "initialMessages": [
+    {
+      "role": "user",
+      "content": "你能直接把当前项目push到https://github.com/wanglun7/harness-skill.git吗？"
+    },
+    {
+      "role": "assistant",
+      "content": "现在还不能直接推。当前有本地未提交改动：\n\n- `ledger.md`\n- `.manifex/sessions/session-2026-06-25T07-38-18-491Z-eb6e9dda-7fa2-4b0d-9095-52013b37a1eb/`\n\n我可以继续帮你做两种之一：\n\n1. 先检查这些改动是否应该一起提交，然后再 push\n2. 你先确认要不要把它们都提交并推到 `https://github.com/wanglun7/harness-skill.git`\n\n如果你愿意，我下一步就整理并提交，然后 push。"
+    },
+    {
+      "role": "user",
+      "content": "You are now acting as the memory extraction subagent. Analyze the most recent ~2 messages above and use them to update your persistent memory system.\nMemory directory: /Users/lun/Desktop/manifex/harness-skill/.manifex/memories\nAvailable tools: Read, Grep, Glob, read-only Bash (ls/find/cat/stat/wc/head/tail and similar), and Edit/Write for paths inside the memory directory only. Bash rm is not permitted. All other tools, including Agent, write-capable Bash, web tools, task tools, and skill tools, will be denied.\nYou have a limited turn budget. Edit requires a prior Read of the same file, so the efficient strategy is: turn 1 — issue all Read calls in parallel for every file you might update; turn 2 — issue all Write/Edit calls in parallel. Do not interleave reads and writes across multiple turns.\nYou MUST only use content from the last ~2 messages to update persistent memories. Do not waste any turns attempting to investigate or verify that content further — no grepping source files, no reading code to confirm a pattern exists, no git commands.\n\n## Existing memory files\n\n- [project] push-target-repo.md (2026-06-25T07:35:46.493Z): User wants the current project pushed to the harness-skill GitHub repository.\n\nCheck this list before writing — update an existing file rather than creating a duplicate.\nIf the user explicitly asks you to remember something, save it immediately as whichever type fits best. If they ask you to forget something, find and remove the relevant entry.\n## Types of memory\nValid memory types: user, feedback, project, reference.\n- `user`: durable facts about the user, their preferences, long-term collaboration style, recurring constraints, or identity.\n- `feedback`: durable corrections or preferences the user gave about how Manifex should behave.\n- `project`: durable project-level facts that are not cheaply derivable from current repository files.\n- `reference`: durable pointers to external or local reference material that the user wants future sessions to recall.\n## What NOT to save in memory\n- Do not save secrets, API keys, passwords, tokens, or private credentials.\n- Do not save transient task state, active plans, todo items, or facts only useful inside the current conversation.\n- Do not save code structure, file paths, function names, git history, command output, or architecture facts that a future agent can cheaply recover by reading the repository.\n- Do not save guesses, vibes, or conclusions that were not stated or clearly established in the recent conversation.\n## How to save memories\nSaving a memory is a three-step process:\n**Step 1** — write the memory to its own file using this frontmatter format:\n---\nname: concise-memory-name\ndescription: One-line retrieval hook for when this memory is useful.\ntype: feedback\n---\nDurable fact, preference, warning, or pointer.\n**Step 2** — add a pointer to that file in `MEMORY.md`. `MEMORY.md` is an index, not a memory — each entry should be one line, under ~150 characters: `- [Title](file.md) — one-line hook`. It has no frontmatter. Never write memory content directly into `MEMORY.md`.\n**Step 3** — update `memory_summary.md` whenever you create, update, or remove a memory file. `memory_summary.md` is the bounded read-side summary used for quick recall in future sessions. It must stay concise, high-signal, and organized by durable themes. Do not copy whole memory records into it.\n- `MEMORY.md` is always loaded into future memory context, so keep the index concise.\n- `memory_summary.md` is not a memory record and must not contain frontmatter.\n- Organize memory semantically by topic, not chronologically.\n- Update or remove memories that turn out to be wrong or outdated.\n- Do not write duplicate memories. First check if there is an existing memory you can update before writing a new one.",
+      "isMeta": true,
+      "type": "fork_directive",
+      "metadata": {
+        "mode": "fork_directive",
+        "agentId": "memory-extraction-1782373147977-f6c0b330f94ca",
+        "querySource": "memory_extraction"
+      }
+    }
+  ],
+  "readFileStateSnapshot": [
+    {
+      "path": "/Users/lun/Desktop/manifex/harness-skill/ledger.md",
+      "timestamp": 1782373052654,
+      "content": "# Coding-Agent Harness Distillation Ledger\n\nGoal: distill source-grounded harness mechanisms from the two reference codebases into reusable skill material, in strict mechanism order.\n\nReference sources:\n- Claude Code: `/Users/lun/Desktop/manifex/collection-claude-code-source-code/claude-code-source-code/src`\n- Codex: `/Users/lun/Desktop/manifex/collection-claude-code-source-code/openai-codex`\n\nRules snapshot:\n- Do not implement runtime changes.\n- Do not generalize source-specific mechanisms.\n- Re-read this ledger and relevant source before each work cycle.\n- Do not proceed to the next mechanism until the current mechanism card is complete.\n- Keep model-visible, runtime, persisted, TUI/display, debug/trace, and eval surfaces separate.\n\n## Work Cycle Log\n\n### 2026-06-25 Cycle 1\n\nBefore:\n- Ledger read result: no existing ledger or card files were present in this workspace.\n- Selected mechanism: 1. Repository/source map and harness boundary definition.\n\nAfter:\n- Completed `cards/01-repository-source-map-and-harness-boundary.md`.\n- Mechanism 1 source citations recorded below.\n- Next incomplete mechanism: 2. Model/provider abstraction.\n\n### 2026-06-25 Cycle 2\n\nBefore:\n- Ledger read result: mechanism 1 complete; mechanism 2 is the next incomplete mechanism.\n- Selected mechanism: 2. Model/provider abstraction.\n- Assumption: \"provider abstraction\" means source-grounded mechanisms for choosing/configuring model providers, carrying model/provider identity into sampling, and streaming responses through provider/client boundaries. It does not include full payload construction details, which belong to mechanism 5.\n\n## Mechanism Status\n\n| # | Mechanism | Status | Card | Key citations |\n|---:|---|---|---|---|\n| 1 | Repository/source map and harness boundary definition | complete | `cards/01-repository-source-map-and-harness-boundary.md` | Claude: `src/entrypoints/cli.tsx:28-33`, `src/QueryEngine.ts:175-184`, `src/QueryEngine.ts:1179-1186`, `src/query.ts:181-239`, `src/Tool.ts:697-701`; Codex: `codex-rs/cli/src/main.rs:90-120`, `codex-rs/core/src/lib.rs:1-18`, `codex-rs/core/src/session/session.rs:23-47`, `codex-rs/core/src/session/turn.rs:140-245` |\n| 2 | Model/provider abstraction | in_progress | | |\n| 3 | Main turn loop and stop conditions | not_started | | |\n| 4 | Streaming protocol and assistant text/tool interleaving | not_started | | |\n| 5 | Message normalization and provider payload construction | not_started | | |\n| 6 | System prompt and instruction layering | not_started | | |\n| 7 | Dynamic context assembly | not_started | | |\n| 8 | Token budgeting and context limits | not_started | | |\n| 9 | Compaction: manual, auto, reactive, post-compact rehydration | not_started | | |\n| 10 | Tool registry and model-visible schema projection | not_started | | |\n| 11 | Tool dispatch lifecycle and scheduling/concurrency | not_started | | |\n| 12 | Tool result projection: raw output, model output, display output, persisted output | not_started | | |\n| 13 | File read/search tools | not_started | | |\n| 14 | File edit/write/patch/diff tools | not_started | | |\n| 15 | Shell/exec/background process/interrupt tools | not_started | | |\n| 16 | Web/network tools | not_started | | |\n| 17 | Task/todo/plan tools and task state | not_started | | |\n| 18 | Subagent/fork/delegation model | not_started | | |\n| 19 | Worktree/isolation/sandbox behavior | not_started | | |\n| 20 | Agent messaging/inbox/notifications | not_started | | |\n| 21 | Memory: session, project, long-term, extraction lifecycle | not_started | | |\n| 22 | Skills/plugins/custom instructions | not_started | | |\n| 23 | Session persistence, transcript storage, resume, repair | not_started | | |\n| 24 | Permissions, approvals, policy enforcement | not_started | | |\n| 25 | Error taxonomy and recovery/retry behavior | not_started | | |\n| 26 | Debug logs, trace bundles, model payload capture | not_started | | |\n| 27 | TUI rendering and interaction model | not_started | | |\n| 28 | Eval harness, smoke tests, golden payloads, trajectory traces | not_started | | |\n| 29 | Runtime hygiene and product-name leakage prevention | not_started | | |\n| 30 | Final skill packaging and usage workflow | not_started | | |\n",
+      "offset": 1,
+      "limit": 2000
+    }
+  ],
+  "toolPolicy": {
+    "allowedTools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash",
+      "Edit",
+      "Write"
+    ],
+    "writableDir": "/Users/lun/Desktop/manifex/harness-skill/.manifex/memories",
+    "readOnlyBash": true
+  }
+}

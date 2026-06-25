@@ -1,0 +1,70 @@
+1	# Coding-Agent Harness Distillation Ledger
+2	
+3	Goal: distill source-grounded harness mechanisms from the two reference codebases into reusable skill material, in strict mechanism order.
+4	
+5	Reference sources:
+6	- Claude Code: `/Users/lun/Desktop/manifex/collection-claude-code-source-code/claude-code-source-code/src`
+7	- Codex: `/Users/lun/Desktop/manifex/collection-claude-code-source-code/openai-codex`
+8	
+9	Rules snapshot:
+10	- Do not implement runtime changes.
+11	- Do not generalize source-specific mechanisms.
+12	- Re-read this ledger and relevant source before each work cycle.
+13	- Do not proceed to the next mechanism until the current mechanism card is complete.
+14	- Keep model-visible, runtime, persisted, TUI/display, debug/trace, and eval surfaces separate.
+15	
+16	## Work Cycle Log
+17	
+18	### 2026-06-25 Cycle 1
+19	
+20	Before:
+21	- Ledger read result: no existing ledger or card files were present in this workspace.
+22	- Selected mechanism: 1. Repository/source map and harness boundary definition.
+23	
+24	After:
+25	- Completed `cards/01-repository-source-map-and-harness-boundary.md`.
+26	- Mechanism 1 source citations recorded below.
+27	- Next incomplete mechanism: 2. Model/provider abstraction.
+28	
+29	### 2026-06-25 Cycle 2
+30	
+31	Before:
+32	- Ledger read result: mechanism 1 complete; mechanism 2 is the next incomplete mechanism.
+33	- Selected mechanism: 2. Model/provider abstraction.
+34	- Assumption: "provider abstraction" means source-grounded mechanisms for choosing/configuring model providers, carrying model/provider identity into sampling, and streaming responses through provider/client boundaries. It does not include full payload construction details, which belong to mechanism 5.
+35	
+36	## Mechanism Status
+37	
+38	| # | Mechanism | Status | Card | Key citations |
+39	|---:|---|---|---|---|
+40	| 1 | Repository/source map and harness boundary definition | complete | `cards/01-repository-source-map-and-harness-boundary.md` | Claude: `src/entrypoints/cli.tsx:28-33`, `src/QueryEngine.ts:175-184`, `src/QueryEngine.ts:1179-1186`, `src/query.ts:181-239`, `src/Tool.ts:697-701`; Codex: `codex-rs/cli/src/main.rs:90-120`, `codex-rs/core/src/lib.rs:1-18`, `codex-rs/core/src/session/session.rs:23-47`, `codex-rs/core/src/session/turn.rs:140-245` |
+41	| 2 | Model/provider abstraction | in_progress | | |
+42	| 3 | Main turn loop and stop conditions | not_started | | |
+43	| 4 | Streaming protocol and assistant text/tool interleaving | not_started | | |
+44	| 5 | Message normalization and provider payload construction | not_started | | |
+45	| 6 | System prompt and instruction layering | not_started | | |
+46	| 7 | Dynamic context assembly | not_started | | |
+47	| 8 | Token budgeting and context limits | not_started | | |
+48	| 9 | Compaction: manual, auto, reactive, post-compact rehydration | not_started | | |
+49	| 10 | Tool registry and model-visible schema projection | not_started | | |
+50	| 11 | Tool dispatch lifecycle and scheduling/concurrency | not_started | | |
+51	| 12 | Tool result projection: raw output, model output, display output, persisted output | not_started | | |
+52	| 13 | File read/search tools | not_started | | |
+53	| 14 | File edit/write/patch/diff tools | not_started | | |
+54	| 15 | Shell/exec/background process/interrupt tools | not_started | | |
+55	| 16 | Web/network tools | not_started | | |
+56	| 17 | Task/todo/plan tools and task state | not_started | | |
+57	| 18 | Subagent/fork/delegation model | not_started | | |
+58	| 19 | Worktree/isolation/sandbox behavior | not_started | | |
+59	| 20 | Agent messaging/inbox/notifications | not_started | | |
+60	| 21 | Memory: session, project, long-term, extraction lifecycle | not_started | | |
+61	| 22 | Skills/plugins/custom instructions | not_started | | |
+62	| 23 | Session persistence, transcript storage, resume, repair | not_started | | |
+63	| 24 | Permissions, approvals, policy enforcement | not_started | | |
+64	| 25 | Error taxonomy and recovery/retry behavior | not_started | | |
+65	| 26 | Debug logs, trace bundles, model payload capture | not_started | | |
+66	| 27 | TUI rendering and interaction model | not_started | | |
+67	| 28 | Eval harness, smoke tests, golden payloads, trajectory traces | not_started | | |
+68	| 29 | Runtime hygiene and product-name leakage prevention | not_started | | |
+69	| 30 | Final skill packaging and usage workflow | not_started | | |
+70	
